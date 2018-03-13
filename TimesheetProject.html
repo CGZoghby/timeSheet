@@ -14,11 +14,15 @@
         crossorigin="anonymous">
     <!-- Custom styles -->
     <link href="assets/style.css" rel="stylesheet">
+    <!-- Link to Moment.js should go here -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <!-- Link to javascript, has been tested so I know the pathing is correct -->
-    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/app.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
 
-    <title>New York Times Search</title>
+    <title>Employee Timesheets</title>
 </head>
 
 <body>
@@ -46,14 +50,8 @@
                                     <th scope="col">Total Billed ($)</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="employees">
                                 <!-- Function that builds html for each object in the array -->
-                                <tr>
-                                    <td>1</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -66,11 +64,11 @@
                         <form>
                             <div class="form-group">
                                 <label for="search-term">Employee Name</label>
-                                <input type="text" class="form-control" id="employee-entry">
+                                <input type="text" class="form-control" id="Name">
                             </div>
                             <div class="form-group">
                                 <label for="search-term">Role</label>
-                                <input type="text" class="form-control" id="role-term">
+                                <input type="text" class="form-control" id="Role">
                             </div>
                             <!-- <div class="form-group">
                                 <label for="number-of-records">Number of Records to Retrieve</label>
@@ -84,14 +82,13 @@
                             </div> -->
                             <div class="form-group">
                                 <label for="start-year">Start Date (DD/MM/YY - ex: 01/01/1989)</label>
-                                <input type="number" class="form-control" id="start-date">
+                                <input type="text" class="form-control" id="StartDate">
                             </div>
                             <div class="form-group">
                                 <label for="end-year">Monthly Rate</label>
-                                <input type="number" class="form-control" id="rate-entry">
+                                <input type="number" class="form-control" id="Rate">
                             </div>
-                            <button class="btn btn-primary" id="submit" type="submit">
-                                Submit</button>
+                            <button class="btn btn-primary" id="submit" type="submit">Submit</button>
                             <!-- <button class="btn btn-primary" id="reset" type="reset">
                                 <i class="fas fa-trash-alt"></i> Clear Results</button> -->
                         </form>
