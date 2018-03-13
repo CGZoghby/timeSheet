@@ -23,7 +23,6 @@ $(document).ready(function () {
     //Need fullname, role, start date, months worked, monthly rate, and total billed
     //months worked and total billed can be calculated locally, and do not have to be stored to firebase
     function writeRow(employee) {
-
         var monthsWorked = (-1) * moment(employee.StartDate).diff(moment(), "months"),
             total = employee.Rate * monthsWorked,
             row = ` <tr>
@@ -34,12 +33,8 @@ $(document).ready(function () {
                     <td>${employee.Rate}</td>
                     <td>${total}</td>
                 </tr>`;
-
         $("#employees").prepend(row);
-
     };
-
-
 
     database.ref().on("child_added", function (childSnapshot) {
         writeRow(childSnapshot.val().employee);
