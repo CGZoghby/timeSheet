@@ -24,7 +24,7 @@ $(document).ready(function () {
     //months worked and total billed can be calculated locally, and do not have to be stored to firebase
     function writeRow(employee) {
 
-        var monthsWorked = moment(employee.StartDate).diff(moment(), "months"),
+        var monthsWorked = (-1) * moment(employee.StartDate).diff(moment(), "months"),
             total = employee.Rate * monthsWorked,
             row = ` <tr>
                     <td>${employee.Name}</td>
